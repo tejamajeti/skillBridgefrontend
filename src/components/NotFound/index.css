@@ -1,0 +1,32 @@
+.not-found {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-found>h1 {
+    color: white;
+    font-family: "Bree Serif";
+    font-size: 1.3rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.not-found>img {
+    width: 60%;
+}
+
+@media screen and (min-width:768px) {
+    .not-found>h1 {
+        font-size: 1.8rem;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .not-found>img {
+        width: 40%;
+    }
+}

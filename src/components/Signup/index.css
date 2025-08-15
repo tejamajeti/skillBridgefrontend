@@ -1,0 +1,99 @@
+.signup-container {
+    background-color: #0000;
+    position: relative;
+    min-height: 110vh;
+    height: fit-content;
+}
+
+.signup-container>h1 {
+    font-family: "Bree Serif";
+    font-size: 1.5rem;
+    text-align: center;
+    color: whitesmoke;
+    margin-top: 30px;
+}
+
+#signupForm {
+    border-radius: 12px;
+    height: fit-content;
+    width: 99%;
+    padding: 15px;
+    border: 1px solid grey;
+    filter: drop-shadow(1px 1px grey);
+}
+
+#signupForm>div {
+    padding: 5px;
+    margin: auto;
+}
+
+
+#signupName,
+#signupEmail,
+#signupPassword,
+#signupRole,
+#bio,
+option {
+    background-color: transparent;
+    border-color: grey;
+    font-family: "Roboto";
+    font-size: 0.9rem;
+    color: whitesmoke;
+}
+
+#signupName::placeholder,
+#signupEmail::placeholder,
+#signupPassword::placeholder,
+#signupRole::placeholder,
+#bio::placeholder {
+    color: whitesmoke;
+    opacity: 0.5;
+}
+
+.signup-container>img {
+    display: none;
+}
+
+
+
+@media screen and (min-width:768px) {
+    #signupForm {
+        position: absolute;
+        width: 50%;
+        top: 22%;
+        left: 5%;
+    }
+
+    .signup-container>h1 {
+        font-size: 2rem;
+    }
+
+    #signupImg {
+        display: block;
+        position: absolute;
+        width: 39%;
+        right: 0%;
+        top: 50%;
+    }
+}
+
+.error-para {
+    font-family: "Roboto";
+    font-size: 0.9rem;
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+
+@media screen and (min-width:1023px) {
+    #signupImg {
+        width: 30%;
+        right: 10%;
+        top: 22%;
+    }
+
+    #signupForm{
+        width: 35%;
+    }
+}
+

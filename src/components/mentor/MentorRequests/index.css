@@ -1,0 +1,36 @@
+.mentor-requests {
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: #000;
+}
+
+.mentor-requests-container {
+    background-color: #121212;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    min-height: 90vh;
+}
+
+.mentor-requests-container>h1 {
+    color: whitesmoke;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+}
+
+.request-list {
+    width: 100%;
+    list-style-type: none;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+@media screen and (min-width:768px) {
+    .mentor-requests-container>h1 {
+        font-size: 1.5rem;
+    }
+}

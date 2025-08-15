@@ -1,0 +1,58 @@
+.popup-overlay {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.popup-content {
+    width: 95%;
+    background-color: #1f1f1f;
+    margin: 0px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    height: fit-content;
+    box-shadow: 1px 1px 1px 1px grey;
+}
+
+.popup-arrow {
+    color: red;
+}
+
+#skillForm>h3 {
+    color: #fff;
+    text-align: center;
+    font-family: "Bree Serif";
+    margin: 10px;
+
+}
+
+#skillForm>input {
+    background-color: transparent;
+    border-bottom: 1px solid grey;
+    border-right: 1px solid grey;
+    border-radius: 6px;
+    display: block;
+    width: 100%;
+    margin: auto;
+    margin-bottom: 15px;
+    padding: 8px;
+    margin-top: 15px;
+    color: #fff;
+    font-family: "Roboto";
+    font-size: 0.8rem;
+    outline: none;
+}
+
+#skillForm > input:focus{
+    border: 1px solid rgb(36, 119, 228);
+}
+
+@media screen and (min-width:768px) {
+    .popup-content {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width:1023px) {
+    .popup-content{
+        width: 35%;
+    }
+}

@@ -1,0 +1,56 @@
+.custom-confirm {
+    width: 90%;
+    height: 90%;
+    background-color: grey;
+    border-radius: 10px;
+    padding: 14px;
+    margin: auto;
+}
+
+.custom-confirm>h1 {
+    color: black;
+    font-family: 'Bree Serif';
+    font-size: 2rem;
+    text-align: center
+}
+
+.custom-confirm>p {
+    font-family: "Roboto";
+    color: #1F1F1F;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.custom-confirm>input {
+    display: block;
+    width: 80%;
+    border: 1px solid grey;
+    font-family: "Roboto";
+    font-size: 0.8rem;
+    border-radius: 5px;
+    outline: none;
+    padding: 8px;
+    margin: auto;
+    filter: drop-shadow(2px 2px black);
+}
+
+.custom-confirm>input:hover {
+    transform: scale(1);
+    border: 1px solid black;
+    filter: none;
+}
+
+.custom-confirm>input:focus {
+    border: 2px solid rgb(9, 81, 181);
+    filter: none;
+}
+
+.custom-confirm>div {
+    width: 80%;
+    margin: auto;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}

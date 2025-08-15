@@ -1,25 +1,45 @@
-import logo from './logo.svg';
+import { Routes, Route, Navigate } from "react-router-dom"
+
+import Login from "./components/Login"
+
+import Signup from "./components/Signup"
+
+import LearnerDashBoard from "./components/learner/LearnerDashboard";
+
+import ProtectedRoute from "./components/ProtectedRoute";
+
+import LearnerProfile from "./components/learner/LearnerProfile";
+
+import LearnerBookings from "./components/learner/LearnerBookings";
+
+import MentorDashBoard from "./components/mentor/MentorDashboard";
+
+import MentorProfile from "./components/mentor/mentorProfile";
+
+import MentorRequests from "./components/mentor/MentorRequests";
+
+import NotFound from "./components/NotFound"
+
 import './App.css';
 
-function App() {
+import { getUserRole } from "./utils/auth";
+
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Routes>
+      <Route exact path="/" element={<Navigate to={getUserRole() ? `/${getUserRole()}` : "/login"} />} />
+      <Route exact path="/login" element={<Login />} />
+      <Route exact path="/learner" requiredRole={"learner"} element={<ProtectedRoute><LearnerDashBoard /></ProtectedRoute>} />
+      <Route exact path="/learner/bookings" requiredRole={"learner"} element={<ProtectedRoute> <LearnerBookings /> </ProtectedRoute>} />
+      <Route exact path="/signup" element={<Signup />} />
+      <Route exact path="/learner/profile" requiredRole={"learner"} element={<ProtectedRoute> <LearnerProfile /></ProtectedRoute>}> </Route>
+      <Route exact path="/mentor" requiredRole={"mentor"} element={<ProtectedRoute> <MentorDashBoard /> </ProtectedRoute>} />
+      <Route exact path="/mentor/profile" requiredRole={"mentor"} element={<ProtectedRoute> <MentorProfile /></ProtectedRoute>} />
+      <Route exact path="/mentor/requests" requiredRole={"mentor"} element={<ProtectedRoute> <MentorRequests /></ProtectedRoute>} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  )
 }
 
 export default App;

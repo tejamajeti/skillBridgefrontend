@@ -1,0 +1,82 @@
+.mentor-profile-container {
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #000;
+    overflow-y: auto;
+}
+
+.mentor-profile {
+    background-color: #121212;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-img {
+    font-size: 15rem;
+    color: rgba(245, 245, 245, 0.605);
+    margin: auto;
+}
+
+.profile-details {
+    padding: 15px;
+    width: 97%;
+    background-color: #1f1f1f;
+    border-radius: 12px;
+    color: #fefefe;
+    margin: auto;
+}
+
+.profile-details>h1 {
+    display: inline;
+    font-family: "Roboto";
+}
+
+.profile-details>div {
+    width: 97%;
+    margin: 10px;
+}
+
+.profile-details>div>label {
+    color: tan;
+    font-size: 0.8rem;
+    font-family: "Roboto";
+    display: inline-block;
+}
+
+.profile-details>div:nth-of-type(1) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.profile-details>div>input,
+.profile-details>div>textarea {
+    background-color: transparent;
+    border: none;
+    color: whitesmoke;
+    padding: 8px;
+    border-bottom: 1px solid grey;
+    margin: auto;
+    width: 97%;
+}
+
+#mentorEditBtn {
+    background-color: transparent;
+    margin-left: auto;
+    border: none;
+    outline: none;
+    color: blue;
+    font-size: 1rem;
+}
+
+@media screen and (min-width:768px) {
+
+    .profile-details {
+        max-width: 50%;
+    }
+}
