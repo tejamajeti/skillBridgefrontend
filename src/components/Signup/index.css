@@ -1,8 +1,10 @@
 .signup-container {
     background-color: #0000;
-    position: relative;
-    min-height: 110vh;
-    height: fit-content;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .signup-container>h1 {
@@ -57,6 +59,11 @@ option {
 
 
 @media screen and (min-width:768px) {
+
+    .signup-container {
+        display: block;
+    }
+
     #signupForm {
         position: absolute;
         width: 50%;
@@ -73,7 +80,7 @@ option {
         position: absolute;
         width: 39%;
         right: 0%;
-        top: 50%;
+        top: 30%;
     }
 }
 
@@ -87,13 +94,13 @@ option {
 
 @media screen and (min-width:1023px) {
     #signupImg {
-        width: 30%;
+        width: 35%;
+        max-width: 550px;
         right: 10%;
-        top: 22%;
+        top: 25%;
     }
 
-    #signupForm{
+    #signupForm {
         width: 35%;
     }
 }
-

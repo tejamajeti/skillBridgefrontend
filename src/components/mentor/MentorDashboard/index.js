@@ -76,14 +76,22 @@ const MentorDashBoard = () => {
 
     )
 
-    const createSkill = (formData) => {
-        const skillPromise = api.post("api/skills/", formData)
-        toast.promise(skillPromise, {
-            success: "Created Skill successfully!!!",
-            error: "Failed to create skill!!!",
-            loading: "Creating Skill..."
-        })
-        getSkills()
+    const createSkill = async (formData) => {
+        try {
+            const skillPromise = api.post("api/skills/", formData)
+            toast.promise(skillPromise, {
+                success: "Created Skill successfully!!!",
+                error: "Failed to create skill!!!",
+                loading: "Creating Skill..."
+            })
+            const response = await skillPromise
+            if (response.status === 400) toast.error(response?.data)
+
+            getSkills()
+        }catch(err){
+            toast.error(err?.response.data || err.message)
+        }
+        
     }
 
     const renderSkills = () => {

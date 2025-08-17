@@ -4,7 +4,7 @@ import toast from "react-hot-toast"
 
 import ToastComponent from "../ToasterComponent"
 
-import { Link, Navigate } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom" 
 
 import axios from "axios"
 

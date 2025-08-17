@@ -6,7 +6,7 @@
 }
 
 .login-container {
-    height: 100%;
+    height: fit-content;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -15,6 +15,7 @@
     background-image: url("https://img.freepik.com/free-vector/abstract-blue-light-pipe-speed-zoom-black-background-technology_1142-9980.jpg?semt=ais_hybrid&w=740");
     background-size: contain;
     position: relative;
+
 }
 
 #loginForm>h1 {
@@ -22,7 +23,7 @@
     font-family: "Bree Serif";
     text-align: center;
     color: whitesmoke;
-    margin: auto;
+    margin: 15px;
 }
 
 #loginForm {
@@ -108,6 +109,15 @@ label {
     justify-content: space-evenly;
     margin-top: 10px;
 }
+.forgot-password{
+    color: white;
+    font-family: "Roboto";
+    font-size: 0.6rem;
+    align-self: flex-start;
+    margin-left: 8px;
+    margin-top: 5px;
+}
+
 
 .login-submit-btn {
     font-family: "Roboto";
@@ -157,7 +167,7 @@ label {
     transform: scale(1.1);
 }
 
-form>p {
+form>p:not(.forgot-password,.signup) {
     font-family: "Roboto";
     font-size: 1rem;
     color: red;

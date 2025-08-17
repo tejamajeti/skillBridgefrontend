@@ -16,7 +16,7 @@ import "./index.css"
 
 
 class Login extends Component {
-    state = { email: "", password: "", msg: "" }
+    state = { email: "", password: "", msg: "", attemptCount: 0 }
 
     onChangeEmail = (event) => {
         this.setState({ email: event.target.value })
@@ -45,9 +45,11 @@ class Login extends Component {
 
             if (err.response && err.response.data) {
                 message = err.response.data;
+                if (err.response.data === 'Invalid Credentials') this.setState((prevState) => ({ attemptCount: prevState.attemptCount + 1 }))
             } else if (err.message) {
                 message = err.message;
             }
+
             this.setState({ msg: message });
             toast.error(message)
         }
@@ -55,7 +57,7 @@ class Login extends Component {
     }
 
     render() {
-        const { email, password, msg } = this.state
+        const { email, password, msg, attemptCount } = this.state
 
         const jwtToken = getToken()
 
@@ -64,7 +66,7 @@ class Login extends Component {
         return (
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-12 bg-dark h-100 login-container">
+                    <div className="col-12 bg-dark p-3 h-100 login-container">
                         <div className="box"></div>
                         <form id="loginForm" onSubmit={this.onSubmitForm}>
                             <h1> LOGIN </h1>
@@ -76,6 +78,7 @@ class Login extends Component {
                                 <label htmlFor="loginPassword"> Password </label>
                                 <input id="loginPassword" type="password" className="form-control input" required onChange={this.onChangePassword} value={password} placeholder="Password" />
                             </div>
+                            {attemptCount >= 1 ? <a href="/reset-password" className="forgot-password"> Forgot Password? </a> : null}
                             <div>
                                 <button className="login-submit-btn" type="submit"> Login</button>
                             </div>

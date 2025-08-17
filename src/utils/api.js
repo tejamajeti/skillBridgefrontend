@@ -1,14 +1,14 @@
-import { getToken } from "../utils/auth";
+import { getToken, removeToken } from "../utils/auth";
 
 import axios from "axios";
 
 import { Navigate } from "react-router-dom";
 
 const api = axios.create({
-    baseURL: "https://skillbridgebackend-lx3u.onrender.com",
+    baseURL: "http://localhost:5000/",
 });
 
-// Request Interceptor
+
 api.interceptors.request.use((config) => {
     const token = getToken();
     config.headers = config.headers ?? {};
@@ -20,7 +20,7 @@ api.interceptors.request.use((config) => {
     return config;
 });
 
-// Response Interceptor
+
 api.interceptors.response.use(
     (res) => res,
     (err) => {
@@ -28,9 +28,11 @@ api.interceptors.response.use(
 
         if (
             (err.response?.status === 403 || err.response?.status === 401) &&
-            !url.includes("/login")
+            !url.includes("/login") && !url.includes("/reset-password")
         ) {
-            <Navigate to="/" replace />
+
+            <Navigate to="/login" replace />
+            removeToken()
         }
         return Promise.reject(err);
     }
