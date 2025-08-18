@@ -38,7 +38,7 @@ class Login extends Component {
             setUserRole(response.data.user.role)
             setUserDetails(response.data.user)
             toast.success("Login Successful")
-            if (response.status === 200 && location.pathname === "/login") navigate(`/${getUserRole()}`, { replace: true })
+            if (response.status === 200 && location.pathname === "/login") navigate(`/`, { replace: true })
 
         } catch (err) {
             let message = "Login Failed!!!";
