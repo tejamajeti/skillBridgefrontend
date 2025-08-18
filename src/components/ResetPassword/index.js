@@ -23,6 +23,7 @@ const ResetPassword = () => {
 
         if (password1 !== password2) {
             setMsg("Passwords Didn't Match")
+            return
         }
 
         try {
@@ -41,6 +42,12 @@ const ResetPassword = () => {
 
     const verifyEmail = async () => {
         try {
+
+            if (!email.includes("@") || !email.includes(".")) {
+                setMsg("Please enter a valid email address")
+                return
+            }
+
             const isValidEmail = await api.post("/api/auth/validate", { email })
 
             if (isValidEmail.status === 200) {
@@ -67,8 +74,8 @@ const ResetPassword = () => {
                     {!isEmailVerified && <Link to="/login"><button type="button" className="btn btn-light btn-sm" > Go Back to Login </button></Link>}
                 </div>
                 {isEmailVerified && <input type="text" id="resetPassword1" placeholder="Enter your new password" className="form-control" value={password1} onChange={e => setPassword1(e.target.value)} required />}
-                {isEmailVerified && <input type="password" id="resetPassword2" placeholder="Renter your new password" className="form-control" value={password2} onChange={e => setPassword2(e.target.value)} required />}
-                <div className="m-2 d-flex flex-row justify-content-around w-100" style={{maxWidth:"250px"}}>
+                {isEmailVerified && <input type="password" id="resetPassword2" placeholder="Re-enter your new password" className="form-control" value={password2} onChange={e => setPassword2(e.target.value)} required />}
+                <div className="m-2 d-flex flex-row justify-content-around w-100" style={{ maxWidth: "250px" }}>
                     {isEmailVerified && <button type="submit" className="btn btn-light btn-sm" disabled={reset}> Reset </button>}
                     {isEmailVerified && <Link to="/login"><button type="button" className="btn btn-light btn-sm" > Go Back to Login </button></Link>}
                 </div>
