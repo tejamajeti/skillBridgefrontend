@@ -62,7 +62,7 @@ const ResetPassword = () => {
             <form id="resetForm" className="p-3 m-4" onSubmit={onsubmitForm}>
                 <h1> Reset Password </h1>
                 {!isEmailVerified && <input type="email" id="resetEmail" placeholder="Enter your email" className="form-control" required value={email} onChange={e => setEmail(e.target.value)} />}
-                <div className="w-50 d-flex flex-row justify-content-around align-items-center m-3">
+                <div className="w-100 d-flex flex-row justify-content-around align-items-center m-3" style={{ maxWidth: '250px' }}>
                     {!isEmailVerified && <button className="btn btn-light btn-sm m-2" type="button" onClick={verifyEmail}> Verify email </button>}
                     {!isEmailVerified && <Link to="/login"><button type="button" className="btn btn-light btn-sm" > Go Back to Login </button></Link>}
                 </div>

@@ -5,7 +5,7 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 
 const api = axios.create({
-    baseURL: "https://skillbridgebackend-lx3u.onrender.com/",
+    baseURL: "https://skillbridgebackend-lx3u.onrender.com",
 });
 
 

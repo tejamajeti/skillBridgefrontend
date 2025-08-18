@@ -33,18 +33,25 @@ class Login extends Component {
         const userDetails = { email, password }
 
         try {
-            const response = await api.post("/api/auth/login", userDetails)
+            const loginPromise = api.post("/api/auth/login", userDetails)
+
+            toast.promise(loginPromise, {
+                loading: "Verifying Credentials...."
+            })
+
+            const response = await loginPromise
+
             setToken(response.data.jwt_token)
             setUserRole(response.data.user.role)
             setUserDetails(response.data.user)
             toast.success("Login Successful")
-            if (response.status === 200 && location.pathname === "/login") navigate(`/`, { replace: true })
+            if (response.status === 200 && location.pathname === "/login") navigate(`/${getUserRole}`, { replace: true })
 
         } catch (err) {
             let message = "Login Failed!!!";
 
             if (err.response && err.response.data) {
-                message = err.response.data;
+                message = err?.response?.data;
                 if (err.response.data === 'Invalid Credentials') this.setState((prevState) => ({ attemptCount: prevState.attemptCount + 1 }))
             } else if (err.message) {
                 message = err.message;
