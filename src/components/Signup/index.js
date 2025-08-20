@@ -6,6 +6,8 @@ import ToastComponent from "../ToasterComponent"
 
 import { Link, Navigate } from "react-router-dom" 
 
+import api from "../../utils/api"
+
 import "./index.css"
 
 import { getUserRole, getToken } from "../../utils/auth"
