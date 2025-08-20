@@ -6,8 +6,6 @@ import ToastComponent from "../ToasterComponent"
 
 import { Link, Navigate } from "react-router-dom" 
 
-import axios from "axios"
-
 import "./index.css"
 
 import { getUserRole, getToken } from "../../utils/auth"
@@ -32,14 +30,12 @@ const Signup = () => {
     const signupSubmission = async event => {
         event.preventDefault();
         try {
-            const apiUrl = "http://localhost:5000/api/auth/register"
             const userDetails = { name, email, password, role, bio }
-            const signupPromise = axios.post(apiUrl, userDetails)
+            const signupPromise = api.post("/api/auth/register", userDetails)
 
             toast.promise(signupPromise, {
                 loading: "Loading...",
                 success: "Signedup Successfully!!! Go back to Login",
-                error: "Signup Failed Retry"
             })
 
             const response = await signupPromise
